@@ -142,11 +142,11 @@ var controller = (function(budgetCtrl, UICtrl){
 
 	return {
 		init: function() {
-			debugger;
 			setupEventListeners();
 		}
 	}
 
 })(budgetController, UIController);
 
+// Initalize the DOM and events
 controller.init();
