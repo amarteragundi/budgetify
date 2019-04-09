@@ -79,7 +79,7 @@ var UIController = (function(){
 		},
 
 		addListItem: function(obj, type){
-			
+
 			var html, expense;
 			// create html string with placeholders
 			if(type == 'inc'){
@@ -89,7 +89,7 @@ var UIController = (function(){
 			else if(type = 'exp'){
 				element = DOMStrings.expenseContainer;
 				html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
-			}			
+			}
 
 			// replace placeholders with actuals
 
@@ -113,7 +113,7 @@ var controller = (function(budgetCtrl, UICtrl){
 
 	var setupEventListeners = function (argument) {
 
-		var DOM = UICtrl.getDOMStrings();	
+		var DOM = UICtrl.getDOMStrings();
 		
 		document.querySelector(DOM.inputSubmit).addEventListener('click', ctrlAddItem)
 
@@ -133,7 +133,7 @@ var controller = (function(budgetCtrl, UICtrl){
 		// 2. Add the item to the budget controller.
 		newItem = budgetCtrl.addItem(input.type, input.description, input.value);
 		// 3.Add the item to UI
-		
+		UICtrl.addListItem(newItem, input.type)
 		// 4. calculate the budget.
 		
 		// 5. display the budget on UI
