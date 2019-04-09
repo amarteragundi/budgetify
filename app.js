@@ -146,6 +146,28 @@ var UIController = (function(){
 		itemPercentageLabel: '.item__percentage',
 		monthLabel: '.budget__title--month'
 	}
+
+	var formatNumber =  function(num, type){
+			var numSplit, int, dec;
+			// formatting numbers with
+			// + or -
+			// 2 decimal points
+			// ',' if in thousands.
+			
+			num = Math.abs(num);
+			num = num.toFixed(2);
+
+			numSplit = num.split('.');
+
+			int = numSplit[0];
+			if(int.length > 3)
+				int = int.substring(0, int.length - 3) + ',' + int.substring(int.length - 3, 3);
+			dec = numSplit[1];
+
+			type == 'exp' ? sign = '-' : sign = "+"
+
+			return (type == 'exp' ? '-' : "+") + ' ' + int + '.' + dec
+		}
 	return {
 		getInput: function(){
 			return {
@@ -177,7 +199,7 @@ var UIController = (function(){
 
 			newHTML = html.replace('%id%', obj.id);
 			newHTML = newHTML.replace('%description%', obj.description);
-			newHTML = newHTML.replace('%value%', obj.value);
+			newHTML = newHTML.replace('%value%', formatNumber(obj.value, type));
 
 
 			// insert html to the DOM.
@@ -229,6 +251,7 @@ var UIController = (function(){
 
 			})
 		}
+
 	}
 
 })();
