@@ -174,23 +174,27 @@ var controller = (function(budgetCtrl, UICtrl){
 	var setupEventListeners = function (argument) {
 
 		var DOM = UICtrl.getDOMStrings();
-		
+
+		//  clcik event on submit button
 		document.querySelector(DOM.inputSubmit).addEventListener('click', ctrlAddItem)
 
+		//  keypress event on enter key
 		document.addEventListener('keypress', function(event){
 		if(event.keyCode == 13 || event.which == 13){
 			ctrlAddItem()
 			}
 		});
+
+
 	}
-	
+
 	var updateBudget = function(){
 		// 1. calculate the budget.
 		budgetCtrl.calculateBudget()
 
 		// 2. returns budget
 		var budget = budgetCtrl.getBudget()
-		console.log(budget)
+
 		// 3. display the budget on UI
 		UICtrl.displayBudget(budget);
 	}
