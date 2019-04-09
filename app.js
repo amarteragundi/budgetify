@@ -115,6 +115,8 @@ var UIController = (function(){
 			fieldsArray.forEach(function(current, index, array){
 				current.value = "";
 			});
+			//  setting focus back to description
+			fieldsArray[0].focus();
 		}
 	}
 
