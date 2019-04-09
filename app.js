@@ -1,3 +1,5 @@
+/*App: Budgetify
+Author: Amar Teragundi*/
 
 //Budget Controller
 var budgetController = (function(){
